@@ -19,7 +19,7 @@ def get_list():
 
             numrows = cursor.rowcount
 
-            for x in xrange(0, numrows):
+            for x in range(0, numrows):
                 row = cursor.fetchone()
                 print (row[0])
 
