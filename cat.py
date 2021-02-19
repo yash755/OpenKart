@@ -11,33 +11,24 @@ def get_list():
                                      charset='utf8mb4',
                                      cursorclass=pymysql.cursors.DictCursor)
         try:
-            #with connection.cursor() as cursor:
-            cursor = connection.cursor()
-            cursor.execute("SELECT category FROM adi_category GROUP BY category")
-                #connection.commit()
+            with connection.cursor() as cursor:
+                cursor.execute("SELECT * FROM adi_category GROUP BY category")
+                connection.commit()
 
 
-            numrows = cursor.rowcount
+                for row in rows:
+                    try:
+                        data = row
+                        category = data['category']
+                        subCategory = data['subcategory']
 
-            print (numrows)
-
-            # for x in range(0, numrows):
-            #     row = cursor.fetchone()
-            #     print (row[0])
-
-            # for row in rows:
-            #         # try:
-            #     data = row
-            #     category = data['category']
-            #
-            #
-            #     print (category)
+                        print (category)
 
 
-                    # except Exception as e:
-                    #     print ("Loop3")
-                    #     print (e)
-                    #     continue
+                    except Exception as e:
+                        print ("Loop3")
+                        print (e)
+                        continue
         except Exception as e:
             print ('Failed Query')
             print ("Loop2")
@@ -50,5 +41,4 @@ def get_list():
 
 
 if __name__ == '__main__':
-    while True:
-        get_list()
+    get_list()
