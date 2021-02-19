@@ -11,20 +11,21 @@ def get_list():
                                      charset='utf8mb4',
                                      cursorclass=pymysql.cursors.DictCursor)
         try:
-            with connection.cursor() as cursor:
-                cursor.execute("SELECT category FROM adi_category GROUP BY category")
-                connection.commit()
+            #with connection.cursor() as cursor:
+            cursor = connection.cursor()
+            cursor.execute("SELECT category FROM adi_category GROUP BY category")
+                #connection.commit()
 
-                print (cursor.rowcount)
-                rows = cursor.fetchall()
+            print (cursor.rowcount)
+            rows = cursor.fetchall()
 
-                for row in rows:
+            for row in rows:
                     # try:
-                    data = row
-                    category = data['category']
+                data = row
+                category = data['category']
 
 
-                    print (category)
+                print (category)
 
 
                     # except Exception as e:
