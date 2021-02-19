@@ -19,9 +19,11 @@ def get_list():
 
             numrows = cursor.rowcount
 
-            for x in range(0, numrows):
-                row = cursor.fetchone()
-                print (row[0])
+            print (numrows)
+
+            # for x in range(0, numrows):
+            #     row = cursor.fetchone()
+            #     print (row[0])
 
             # for row in rows:
             #         # try:
