@@ -12,25 +12,25 @@ def get_list():
                                      cursorclass=pymysql.cursors.DictCursor)
         try:
             with connection.cursor() as cursor:
-                cursor.execute("SELECT * FROM adi_category GROUP BY category")
+                cursor.execute("SELECT category FROM adi_category GROUP BY category")
                 connection.commit()
 
                 print (cursor.rowcount)
                 rows = cursor.fetchall()
 
                 for row in rows:
-                    try:
-                        data = row
-                        category = data['category']
-                        subCategory = data['subcategory']
-
-                        print (category)
+                    # try:
+                    data = row
+                    category = data['category']
 
 
-                    except Exception as e:
-                        print ("Loop3")
-                        print (e)
-                        continue
+                    print (category)
+
+
+                    # except Exception as e:
+                    #     print ("Loop3")
+                    #     print (e)
+                    #     continue
         except Exception as e:
             print ('Failed Query')
             print ("Loop2")
