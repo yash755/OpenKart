@@ -16,16 +16,20 @@ def get_list():
             cursor.execute("SELECT category FROM adi_category GROUP BY category")
                 #connection.commit()
 
-            print (cursor.rowcount)
-            rows = cursor.fetchall()
 
-            for row in rows:
-                    # try:
-                data = row
-                category = data['category']
+            numrows = cursor.rowcount
 
+            for x in xrange(0, numrows):
+                row = cursor.fetchone()
+                print (row[0])
 
-                print (category)
+            # for row in rows:
+            #         # try:
+            #     data = row
+            #     category = data['category']
+            #
+            #
+            #     print (category)
 
 
                     # except Exception as e:
