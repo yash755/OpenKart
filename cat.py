@@ -1,4 +1,5 @@
 import pymysql.cursors
+import time
 
 
 def get_list():
@@ -11,15 +12,15 @@ def get_list():
                                      cursorclass=pymysql.cursors.DictCursor)
         try:
             with connection.cursor() as cursor:
-                cursor.execute("SELECT * FROM adi_category")
+                cursor.execute("SELECT * FROM adi_category GROUP BY category")
                 connection.commit()
 
-                for row in cursor:
+                rows = cursor.fetchall()
+
+                for row in rows:
                     try:
                         data = row
-                        pageCount = data['id']
                         category = data['category']
-                        pageURL = data['pageurl']
                         subCategory = data['subcategory']
 
                         print (category)
