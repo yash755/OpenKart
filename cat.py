@@ -15,6 +15,7 @@ def get_list():
                 cursor.execute("SELECT * FROM adi_category GROUP BY category")
                 connection.commit()
 
+                print (cursor.rowcount)
                 rows = cursor.fetchall()
 
                 for row in rows:
