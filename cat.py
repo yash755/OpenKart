@@ -16,7 +16,7 @@ def get_list():
                 connection.commit()
 
 
-                for row in rows:
+                for row in cursor:
                     try:
                         data = row
                         category = data['category']
