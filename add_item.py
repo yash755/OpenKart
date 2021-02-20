@@ -37,15 +37,16 @@ def get_list():
                                     data = row
 
                                     print ('\n\n\n')
-
-                                    html = str(data['html'])
-
-                                    print (html)
-
-                                    html = html.replace('\n','')
-                                    html = html.replace('\\', '')
-
-                                    print (html)
+                                    print (data)
+                                    #
+                                    # html = str(data['html'])
+                                    #
+                                    # print (html)
+                                    #
+                                    # html = html.replace('\n','')
+                                    # html = html.replace('\\', '')
+                                    #
+                                    # print (html)
 
 
                                 except Exception as e:
