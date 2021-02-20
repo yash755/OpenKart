@@ -41,7 +41,14 @@ def get_list():
                             print (cursor3.fetchone())
 
                         else:
-                            print ("No Data")
+                            with connection1.cursor() as cursor4:
+                                sql = "DELETE FROM oc21_category WHERE category_id = %s"
+                                adr = category
+
+                                cursor4.execute(sql, adr)
+                                connection1.commit()
+
+                                print(cursor4.rowcount, "record(s) deleted")
 
 
 
