@@ -69,7 +69,7 @@ def get_list():
                         sql = "SELECT * FROM oc21_category_description WHERE = %s"
                         adr = category_id
 
-                        cursor3.execute("SELECT * FROM oc21_category_description")
+                        cursor3.execute(sql, adr)
                         connection1.commit()
 
                         result2 = cursor3.fetchone()
