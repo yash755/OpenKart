@@ -26,8 +26,8 @@ def get_list():
                         print (subcategory + '\n\n')
 
                         with connection.cursor() as cursor1:
-                            sql = "SELECT * FROM adi WHERE name  = %s IS NOT NULL LIMIT 10"
-                            adr = 'AL FNSH MULLN KYPD AC/ DC BKLIT'
+                            sql = "SELECT * FROM adi WHERE subcategory  = %s IS NOT NULL LIMIT 10"
+                            adr = subcategory
 
                             cursor1.execute(sql, adr)
                             connection.commit()
@@ -58,7 +58,7 @@ def get_list():
 
                                             with connection1.cursor() as cursor2:
                                                 sql = "SELECT * FROM oc21_product_description WHERE name = %s"
-                                                adr = title
+                                                adr = 'AL FNSH MULLN KYPD AC/ DC BKLIT'
 
                                                 cursor2.execute(sql, adr)
                                                 connection1.commit()
