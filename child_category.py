@@ -50,7 +50,7 @@ def get_list():
 
                                             if cursor3.rowcount >= 1:
                                                 result = cursor3.fetchone()
-                                                print (result)
+                                                print (result['category_id'])
 
 
 
