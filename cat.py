@@ -21,7 +21,7 @@ def get_list():
                         data = row
                         category = data['category']
 
-                        order = 0
+
 
 
                         print (category)
@@ -37,44 +37,40 @@ def get_list():
                             try:
                                 with connection1.cursor() as cursor2:
                                     sql = "SELECT * FROM oc21_category_description WHERE name = %s"
-                                    adr = 'Hardware'
+                                    adr = category
 
                                     cursor2.execute(sql, adr)
 
                                     print (cursor2.rowcount)
 
-                                    # if (cursor2.rowcount == 0) {
-                                    #
-                                    # }
+                                    if cursor2.rowcount == 0:
+                                        try:
+                                            with connection1.cursor() as cursor3:
+                                                cursor3.execute(
+                                                    "INSERT INTO oc21_category (status, top, sort_order) VALUES (%s,%s,%s)",
+                                                    (1,1,1))
 
-                                    # result = cursor2.fetchone()
-                                    #
-                                    # category_id = result['category_id']
 
-                                    # try:
-                                    #     with connection1.cursor() as cursor3:
-                                    #         # cursor2.execute(
-                                    #         #     "INSERT INTO oc21_category (status, top, sort_order) VALUES (%s,%s,%s)",
-                                    #         #     (1,1,1))
-                                    #
-                                    #         sql = "SELECT * FROM oc21_category_description WHERE category_id = %s"
-                                    #         adr = category_id
-                                    #
-                                    #         cursor3.execute(sql, adr)
-                                    #         connection1.commit()
-                                    #
-                                    #         result2 = cursor3.fetchone()
-                                    #
-                                    #         # category_id = result['category_id']
-                                    #
-                                    #         print (result2)
-                                    #
-                                    #         print (result['category_id'])
-                                    #
-                                    #         print ("Inserted")
-                                    # except Exception as e:
-                                    #     print ('Failed Query')
-                                    #     print (e)
+                                                result2 = cursor3.fetchone()
+                                                category_id = result2['category_id']
+                                                with connection1.cursor() as cursor4:
+                                                    cursor4.execute(
+                                                        "INSERT INTO  oc21_category_description (name,category_id,language_id) VALUES (%s,%s,%s)",
+                                                        (str(category), category_id, 1))
+
+                                                with connection1.cursor() as cursor5:
+                                                    cursor5.execute(
+                                                        "INSERT INTO  oc21_category_to_store (store_id,category_id) VALUES (%s,%s)",
+                                                        (0, category_id))
+
+
+
+                                        except Exception as e:
+                                            print ('Failed Query')
+                                            print (e)
+
+
+
 
                             except Exception as e:
                                 print ('Failed Query')
