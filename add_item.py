@@ -69,18 +69,32 @@ def get_list():
                                                     print (vendor)
 
                                                     with connection1.cursor() as cursor3:
-                                                        cursor3.execute("INSERT INTO  oc21_manufacturer (name) VALUES (%s)",
-                                                                    (vendor))
-                                                        connection1.commit()
-                                                        print (cursor3.lastrowid)
 
-                                                        manu_id = cursor3.lastrowid
+                                                        sql = "SELECT * FROM oc21_manufacturer WHERE name = %s"
+                                                        adr = vendor
+
+                                                        cursor3.execute(sql, adr)
+                                                        connection1.commit()
+
+
+                                                    if cursor3.rowcount == 0:
 
                                                         with connection1.cursor() as cursor4:
-                                                            cursor4.execute("INSERT INTO  oc21_manufacturer_to_store (manufacturer_id) VALUES (%s)",
-                                                                    (manu_id))
+                                                            cursor4.execute("INSERT INTO  oc21_manufacturer (name) VALUES (%s)",
+                                                                        (vendor))
                                                             connection1.commit()
                                                             print (cursor4.lastrowid)
+
+                                                            manu_id = cursor4.lastrowid
+
+                                                            with connection1.cursor() as cursor5:
+                                                                cursor5.execute("INSERT INTO  oc21_manufacturer_to_store (manufacturer_id) VALUES (%s)",
+                                                                        (manu_id))
+                                                                connection1.commit()
+                                                                print (cursor5.lastrowid)
+
+                                                    else:
+                                                        print (cursor3.fetchone())
 
 
                                                 else:
