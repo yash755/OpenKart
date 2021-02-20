@@ -59,8 +59,8 @@ def get_list():
                                                     try:
                                                         with connection1.cursor() as cursor4:
                                                             cursor4.execute(
-                                                                "INSERT INTO oc21_category (status, top, sort_order) VALUES (%s,%s,%s)",
-                                                                (1,1,1))
+                                                                "INSERT INTO oc21_category (status, top, sort_order, parent_id) VALUES (%s,%s,%s,%w)",
+                                                                (1,1,1, parent_id))
 
                                                             connection1.commit()
 
@@ -73,8 +73,8 @@ def get_list():
                                                             print (category_id)
                                                             with connection1.cursor() as cursor5:
                                                                 cursor5.execute(
-                                                                    "INSERT INTO  oc21_category_description (name,category_id,parent_id,language_id) VALUES (%s,%s,%s,%s)",
-                                                                    (str(subcategory), category_id, parent_id, 1))
+                                                                    "INSERT INTO  oc21_category_description (name,category_id,language_id) VALUES (%s,%s,%s,%s)",
+                                                                    (str(subcategory), category_id, 1))
 
                                                             connection1.commit()
 
