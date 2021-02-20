@@ -54,15 +54,15 @@ def get_list():
                                                 result2 = cursor3.fetchone()
                                                 category_id = result2['category_id']
                                                 print (category_id)
-                                                with connection1.cursor() as cursor4:
-                                                    cursor4.execute(
-                                                        "INSERT INTO  oc21_category_description (name,category_id,language_id) VALUES (%s,%s,%s)",
-                                                        (str(category), category_id, 1))
-
-                                                with connection1.cursor() as cursor5:
-                                                    cursor5.execute(
-                                                        "INSERT INTO  oc21_category_to_store (store_id,category_id) VALUES (%s,%s)",
-                                                        (0, category_id))
+                                                # with connection1.cursor() as cursor4:
+                                                #     cursor4.execute(
+                                                #         "INSERT INTO  oc21_category_description (name,category_id,language_id) VALUES (%s,%s,%s)",
+                                                #         (str(category), category_id, 1))
+                                                #
+                                                # with connection1.cursor() as cursor5:
+                                                #     cursor5.execute(
+                                                #         "INSERT INTO  oc21_category_to_store (store_id,category_id) VALUES (%s,%s)",
+                                                #         (0, category_id))
 
 
 
