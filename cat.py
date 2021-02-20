@@ -50,9 +50,10 @@ def get_list():
 
         try:
             with connection1.cursor() as cursor2:
-                cursor2.execute(
-                    "INSERT INTO oc21_category (status, top, sort_order) VALUES (%s,%s,%s)",
-                    (1,1,1))
+                # cursor2.execute(
+                #     "INSERT INTO oc21_category (status, top, sort_order) VALUES (%s,%s,%s)",
+                #     (1,1,1))
+                cursor2.execute("SELECT * FROM oc21_category")
                 connection1.commit()
 
                 result = cursor2.fetchone()
