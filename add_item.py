@@ -27,7 +27,7 @@ def get_list():
 
                         with connection.cursor() as cursor1:
                             sql = "SELECT * FROM adi WHERE subcategory  = %s IS NOT NULL LIMIT 10"
-                            adr = subcategory
+                            adr = 'AL FNSH MULLN KYPD AC/ DC BKLIT'
 
                             cursor1.execute(sql, adr)
                             connection.commit()
