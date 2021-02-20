@@ -35,7 +35,12 @@ def get_list():
                             for row in cursor1:
                                 try:
                                     data = row
-                                    print (data)
+
+                                    html = str(data['html'])
+                                    html = html.replace('\n','')
+                                    html = html.replace('\\', '')
+
+                                    print (html)
 
 
                                 except Exception as e:
