@@ -36,6 +36,8 @@ def get_list():
                                 try:
                                     data = row
 
+                                    print ('\n\n\n')
+
                                     html = str(data['html'])
 
                                     print (html)
