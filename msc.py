@@ -15,7 +15,7 @@ def get_list():
 
         try:
             with connection1.cursor() as cursor2:
-                sql = "SELECT * FROM oc21_category_description"
+                sql = "SELECT * FROM oc21_category"
                 adr = category
                 cursor2.execute(sql, adr)
                 connection1.commit()
