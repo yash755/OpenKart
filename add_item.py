@@ -44,6 +44,8 @@ def get_list():
                                     variant_price = data['variant_price']
                                     variant_barcode = data['variant_barcode']
 
+                                    vendor_id = ''
+
                                     print (title)
 
                                     try:
@@ -87,6 +89,8 @@ def get_list():
 
                                                             manu_id = cursor4.lastrowid
 
+                                                            vendor_id = manu_id
+
                                                             with connection1.cursor() as cursor5:
                                                                 cursor5.execute("INSERT INTO  oc21_manufacturer_to_store (manufacturer_id) VALUES (%s)",
                                                                         (manu_id))
@@ -95,6 +99,9 @@ def get_list():
 
                                                     else:
                                                         print (cursor3.fetchone())
+
+
+                                                    print (vendor_id)
 
 
                                                 else:
