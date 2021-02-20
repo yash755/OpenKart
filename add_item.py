@@ -26,7 +26,7 @@ def get_list():
                         print (subcategory + '\n\n')
 
                         with connection.cursor() as cursor1:
-                            sql = "SELECT * FROM adi WHERE subcategory  = %s IS NOT NULL LIMIT 10"
+                            sql = "SELECT * FROM adi WHERE subcategory  = %s IS NOT NULL AND tags IS NOT NULL LIMIT 10"
                             adr = subcategory
 
                             cursor1.execute(sql, adr)
@@ -36,17 +36,12 @@ def get_list():
                                 try:
                                     data = row
 
-                                    print ('\n\n\n')
+                                    handle = data['handle']
+                                    title = data['title']
+                                    html = data['html']
+                                    vendor = data['vendor']
+
                                     print (data)
-                                    #
-                                    # html = str(data['html'])
-                                    #
-                                    # print (html)
-                                    #
-                                    # html = html.replace('\n','')
-                                    # html = html.replace('\\', '')
-                                    #
-                                    # print (html)
 
 
                                 except Exception as e:
