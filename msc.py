@@ -19,6 +19,9 @@ def get_list():
                 connection1.commit()
 
 
+                print (cursor2.rowcount)
+
+
                 for row in cursor2:
                     data = row
 
@@ -29,6 +32,7 @@ def get_list():
                     adr = category
 
                     cursor2.execute(sql, adr)
+
                     connection1.commit()
 
                     print (cursor2.fetchone())
