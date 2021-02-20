@@ -15,12 +15,23 @@ def get_list():
 
         try:
             with connection1.cursor() as cursor2:
-                cursor2.execute("SELECT * FROM oc21_category_description")
+                cursor2.execute("SELECT * FROM oc21_category")
                 connection1.commit()
 
-                for row in cursor2:
-                    print (row)
 
+                for row in cursor2:
+                    data = row
+
+                    category = data['category_id']
+                    print (category)
+
+                    sql = "SELECT * FROM oc21_category_description WHERE name = %s"
+                    adr = category
+
+                    cursor2.execute(sql, adr)
+                    connection1.commit()
+
+                    print (cursor2.fetchone())
 
 
 
