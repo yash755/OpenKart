@@ -59,7 +59,7 @@ def get_list():
                                                     try:
                                                         with connection1.cursor() as cursor4:
                                                             cursor4.execute(
-                                                                "INSERT INTO oc21_category (status, top, sort_order, parent_id) VALUES (%s,%s,%s,%w)",
+                                                                "INSERT INTO oc21_category (status, top, sort_order, parent_id) VALUES (%s,%s,%s,%s)",
                                                                 (1,1,1, parent_id))
 
                                                             connection1.commit()
