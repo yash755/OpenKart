@@ -28,19 +28,20 @@ def get_list():
                     category = data['category_id']
                     print (category)
 
-                    sql = "SELECT * FROM oc21_category_description WHERE category_id = %s"
-                    adr = category
 
 
+                    with connection1.cursor() as cursor3:
+                        sql = "SELECT * FROM oc21_category_description WHERE category_id = %s"
+                        adr = category
 
-                    cursor3.execute(sql, adr)
-                    connection1.commit()
+                        cursor3.execute(sql, adr)
+                        connection1.commit()
 
-                    if cursor3.rowcount >=1:
-                        print (cursor3.fetchone())
+                        if cursor3.rowcount >=1:
+                            print (cursor3.fetchone())
 
-                    else:
-                        print ("No Data")
+                        else:
+                            print ("No Data")
 
 
 
