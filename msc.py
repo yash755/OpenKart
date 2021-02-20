@@ -31,11 +31,16 @@ def get_list():
                     sql = "SELECT * FROM oc21_category_description WHERE category_id = %s"
                     adr = category
 
-                    cursor2.execute(sql, adr)
 
 
+                    cursor3.execute(sql, adr)
+                    connection1.commit()
 
-                    print (cursor2.fetchone())
+                    if cursor3.rowcount >=1:
+                        print (cursor3.fetchone())
+
+                    else:
+                        print ("No Data")
 
 
 
