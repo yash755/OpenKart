@@ -117,8 +117,8 @@ def get_list():
             with connection1.cursor() as cursor3:
                 cursor3.execute("INSERT INTO oc21_category (status, top, sort_order) VALUES (%s,%s,%s)",(1, 1, 1))
                 result2 = cursor3.fetchone()
-                category_id = result2['category_id']
-                print (category_id)
+                # category_id = result2['category_id']
+                print (result2)
         except Exception as e:
             print ('Failed Query')
             print (e)
