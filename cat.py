@@ -21,6 +21,8 @@ def get_list():
                         data = row
                         category = data['category']
 
+                        order = 0
+
 
                         print (category)
 
@@ -35,7 +37,7 @@ def get_list():
                             try:
                                 with connection1.cursor() as cursor2:
                                     sql = "SELECT * FROM oc21_category_description WHERE name = %s"
-                                    adr = category
+                                    adr = 'Hardware'
 
                                     cursor2.execute(sql, adr)
 
