@@ -66,7 +66,7 @@ def get_list():
                         #     "INSERT INTO oc21_category (status, top, sort_order) VALUES (%s,%s,%s)",
                         #     (1,1,1))
 
-                        sql = "SELECT * FROM oc21_category_description WHERE = %s"
+                        sql = "SELECT * FROM oc21_category_description WHERE category_id = %s"
                         adr = category_id
 
                         cursor3.execute(sql, adr)
