@@ -78,8 +78,8 @@ def get_list():
 
                                                             connection1.commit()
 
-                                                            with connection1.cursor() as cursor5:
-                                                                cursor5.execute(
+                                                            with connection1.cursor() as cursor6:
+                                                                cursor6.execute(
                                                                     "INSERT INTO  oc21_category_to_store (store_id,category_id) VALUES (%s,%s)",
                                                                     (0, category_id))
 
