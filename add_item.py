@@ -26,7 +26,7 @@ def get_list():
                         print (subcategory + '\n\n')
 
                         with connection.cursor() as cursor1:
-                            sql = "SELECT * FROM adi WHERE subcategory  = %s IS NOT NULL LIMIT 10"
+                            sql = "SELECT * FROM adi WHERE name  = %s IS NOT NULL LIMIT 10"
                             adr = 'AL FNSH MULLN KYPD AC/ DC BKLIT'
 
                             cursor1.execute(sql, adr)
