@@ -53,6 +53,7 @@ def get_list():
 
                                                 result2 = cursor3.fetchone()
                                                 category_id = result2['category_id']
+                                                print (category_id)
                                                 with connection1.cursor() as cursor4:
                                                     cursor4.execute(
                                                         "INSERT INTO  oc21_category_description (name,category_id,language_id) VALUES (%s,%s,%s)",
@@ -65,9 +66,14 @@ def get_list():
 
 
 
+
+
                                         except Exception as e:
                                             print ('Failed Query')
                                             print (e)
+
+
+                                    connection1.commit()
 
 
 
