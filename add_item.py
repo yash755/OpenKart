@@ -58,7 +58,7 @@ def get_list():
 
                                             with connection1.cursor() as cursor2:
                                                 sql = "SELECT * FROM oc21_product_description WHERE name = %s"
-                                                adr = 'AL FNSH MULLN KYPD AC/ DC BKLIT'
+                                                adr = title
 
                                                 cursor2.execute(sql, adr)
                                                 connection1.commit()
@@ -66,7 +66,22 @@ def get_list():
                                                 print (cursor2.rowcount)
 
                                                 if cursor2.rowcount == 0:
-                                                    print ("Yes")
+                                                    print (vendor)
+
+                                                    with connection1.cursor() as cursor3:
+                                                        cursor3.execute("INSERT INTO  oc21_manufacturer (name) VALUES (%s)",
+                                                                    (vendor))
+                                                        connection1.commit()
+                                                        print (cursor3.lastrowid)
+
+                                                        manu_id = cursor3.lastrowid
+
+                                                        with connection1.cursor() as cursor4:
+                                                            cursor4.execute("INSERT INTO  oc21_manufacturer_to_store (manufacturer_id) VALUES (%s)",
+                                                                    (manu_id))
+                                                            connection1.commit()
+                                                            print (cursor4.lastrowid)
+
 
                                                 else:
                                                     print ("No")
