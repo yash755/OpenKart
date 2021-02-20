@@ -73,7 +73,7 @@ def get_list():
                                                             print (category_id)
                                                             with connection1.cursor() as cursor5:
                                                                 cursor5.execute(
-                                                                    "INSERT INTO  oc21_category_description (name,category_id,language_id) VALUES (%s,%s,%s,%s)",
+                                                                    "INSERT INTO  oc21_category_description (name,category_id,language_id) VALUES (%s,%s,%s)",
                                                                     (str(subcategory), category_id, 1))
 
                                                             connection1.commit()
