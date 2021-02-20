@@ -54,14 +54,14 @@ def get_list():
                 #     "INSERT INTO oc21_category (status, top, sort_order) VALUES (%s,%s,%s)",
                 #     (1,1,1))
                 cursor2.execute("SELECT * FROM oc21_category")
-                connection1.commit()
+                # connection1.commit()
 
                 result = cursor2.fetchone()
 
                 category_id = result['category_id']
 
                 try:
-                    with connection1.cursor() as cursor2:
+                    with connection1.cursor() as cursor3:
                         # cursor2.execute(
                         #     "INSERT INTO oc21_category (status, top, sort_order) VALUES (%s,%s,%s)",
                         #     (1,1,1))
@@ -69,14 +69,14 @@ def get_list():
                         sql = "SELECT * FROM oc21_category_description WHERE = %s"
                         adr = category_id
 
-                        cursor2.execute("SELECT * FROM oc21_category_description WHERE = '25'")
+                        cursor3.execute("SELECT * FROM oc21_category_description")
                         connection1.commit()
 
-                        result = cursor2.fetchone()
+                        result2 = cursor3.fetchone()
 
-                        category_id = result['category_id']
+                        # category_id = result['category_id']
 
-                        print (result)
+                        print (result2)
 
                         print (result['category_id'])
 
