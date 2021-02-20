@@ -37,7 +37,7 @@ def get_list():
                             try:
                                 with connection1.cursor() as cursor2:
                                     sql = "SELECT * FROM oc21_category_description WHERE name = %s"
-                                    adr = "MP3 Players"
+                                    adr = category
 
                                     cursor2.execute(sql, adr)
 
