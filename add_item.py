@@ -12,7 +12,7 @@ def get_list():
                                      cursorclass=pymysql.cursors.DictCursor)
         try:
             with connection.cursor() as cursor:
-                cursor.execute("SELECT * FROM adi LIMIT 10")
+                cursor.execute("SELECT * FROM adi WHERE subcategory IS NOT NULL LIMIT 10")
                 connection.commit()
 
 
