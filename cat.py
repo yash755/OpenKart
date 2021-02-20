@@ -37,11 +37,13 @@ def get_list():
                             try:
                                 with connection1.cursor() as cursor2:
                                     sql = "SELECT * FROM oc21_category_description WHERE name = %s"
-                                    adr = category
+                                    adr = "Demo"
 
                                     cursor2.execute(sql, adr)
 
                                     print (cursor2.rowcount)
+
+                                    print (cursor2.fetchone())
 
                                     if cursor2.rowcount == 0:
                                         try:
