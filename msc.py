@@ -33,7 +33,7 @@ def get_list():
 
                     cursor2.execute(sql, adr)
 
-                    connection1.commit()
+
 
                     print (cursor2.fetchone())
 
