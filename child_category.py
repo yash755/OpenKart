@@ -50,46 +50,48 @@ def get_list():
 
                                             if cursor3.rowcount >= 1:
                                                 result = cursor3.fetchone()
-                                                print (result['category_id'])
+                                                parent_id = result['category_id']
+
+                                                if parent_id:
 
 
 
-                                        # try:
-                                        #     with connection1.cursor() as cursor3:
-                                        #         cursor3.execute(
-                                        #             "INSERT INTO oc21_category (status, top, sort_order) VALUES (%s,%s,%s)",
-                                        #             (1,1,1))
-                                        #
-                                        #         connection1.commit()
-                                        #
-                                        #         print(cursor3.lastrowid, "record inserted.")
-                                        #         print
-                                        #
-                                        #
-                                        #         # result2 = cursor3.fetchone()
-                                        #         category_id = cursor3.lastrowid
-                                        #         print (category_id)
-                                        #         with connection1.cursor() as cursor4:
-                                        #             cursor4.execute(
-                                        #                 "INSERT INTO  oc21_category_description (name,category_id,language_id) VALUES (%s,%s,%s)",
-                                        #                 (str(category), category_id, 1))
-                                        #
-                                        #         connection1.commit()
-                                        #
-                                        #         with connection1.cursor() as cursor5:
-                                        #             cursor5.execute(
-                                        #                 "INSERT INTO  oc21_category_to_store (store_id,category_id) VALUES (%s,%s)",
-                                        #                 (0, category_id))
-                                        #
-                                        #         connection1.commit()
-                                        #
-                                        #
-                                        #
-                                        #
-                                        #
-                                        # except Exception as e:
-                                        #     print ('Failed Query')
-                                        #     print (e)
+                                                    try:
+                                                        with connection1.cursor() as cursor4:
+                                                            cursor4.execute(
+                                                                "INSERT INTO oc21_category (status, top, sort_order) VALUES (%s,%s,%s)",
+                                                                (1,1,1))
+
+                                                            connection1.commit()
+
+                                                            print(cursor4.lastrowid, "record inserted.")
+                                                            print
+
+
+                                                            # result2 = cursor3.fetchone()
+                                                            category_id = cursor4.lastrowid
+                                                            print (category_id)
+                                                            with connection1.cursor() as cursor5:
+                                                                cursor5.execute(
+                                                                    "INSERT INTO  oc21_category_description (name,category_id,parent_id,language_id) VALUES (%s,%s,%s,%s)",
+                                                                    (str(subcategory), category_id, parent_id, 1))
+
+                                                            connection1.commit()
+
+                                                            with connection1.cursor() as cursor5:
+                                                                cursor5.execute(
+                                                                    "INSERT INTO  oc21_category_to_store (store_id,category_id) VALUES (%s,%s)",
+                                                                    (0, category_id))
+
+                                                            connection1.commit()
+
+
+
+
+
+                                                    except Exception as e:
+                                                        print ('Failed Query')
+                                                        print (e)
 
 
 
