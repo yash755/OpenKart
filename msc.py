@@ -25,7 +25,7 @@ def get_list():
                     category = data['category_id']
                     print (category)
 
-                    sql = "SELECT * FROM oc21_category_description WHERE name = %s"
+                    sql = "SELECT * FROM oc21_category_description WHERE category_id = %s"
                     adr = category
 
                     cursor2.execute(sql, adr)
