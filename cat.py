@@ -55,7 +55,8 @@ def get_list():
 
                                                 connection1.commit()
 
-                                                print(cursor3.rowcount, "record inserted.")
+                                                print(cursor3.lastrowid, "record inserted.")
+                                                print
 
 
                                                 # result2 = cursor3.fetchone()
