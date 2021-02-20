@@ -58,9 +58,36 @@ def get_list():
 
                 result = cursor2.fetchone()
 
+                category_id = result['category_id']
+
+                try:
+                    with connection1.cursor() as cursor2:
+                        # cursor2.execute(
+                        #     "INSERT INTO oc21_category (status, top, sort_order) VALUES (%s,%s,%s)",
+                        #     (1,1,1))
+
+                        sql = "SELECT * FROM oc21_category_description WHERE = %s"
+                        adr = category_id
+
+                        cursor2.execute(sql, adr)
+                        connection1.commit()
+
+                        result = cursor2.fetchone()
+
+                        category_id = result['category_id']
+
+                        print (result)
+
+                        print (result['category_id'])
+
+                        print ("Inserted")
+                except Exception as e:
+                    print ('Failed Query')
+                    print (e)
+
                 print (result)
 
-                print (result['insert_id'])
+                print (result['category_id'])
 
                 print ("Inserted")
         except Exception as e:
