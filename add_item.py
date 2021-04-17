@@ -104,7 +104,7 @@ def get_list():
 
 
                                                 else:
-                                                    print ("No")
+                                                    print ("Update Logic")
                                         except Exception as e:
                                             print ('Failed Query')
                                             print (e)
