@@ -1,6 +1,6 @@
 import pymysql.cursors
 import time
-import datetime
+from datetime import date
 
 
 def get_list():
@@ -103,10 +103,13 @@ def get_list():
 
                                                     print ("Vendor ID " + str(vendor_id))
 
+                                                    today = date.today()
+                                                    d4 = today.strftime("%y-%m-%d")
+
                                                     with connection1.cursor() as cursor7:
                                                         cursor7.execute(
                                                             "INSERT INTO  oc21_product (quantity,stock_status_id,date_available,manufacturer_id,shipping,price,status,sort_order,date_added) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s)",
-                                                            (1,6,datetime.datetime.now(), int(vendor_id), 1,float(variant_price), 1,1,datetime.datetime.now()))
+                                                            (1,6,d4, int(vendor_id), 1,float(variant_price), 1,1,d4))
                                                         connection1.commit()
 
                                                         prod_id = cursor7.lastrowid
