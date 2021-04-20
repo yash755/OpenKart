@@ -45,6 +45,8 @@ def get_list():
                                     variant_price = data['variant_price']
                                     variant_barcode = data['variant_barcode']
 
+                                    type = data['type']
+
                                     vendor_id = ''
 
                                     print (title)
@@ -113,7 +115,17 @@ def get_list():
                                                         connection1.commit()
 
                                                         prod_id = cursor7.lastrowid
+
                                                         print (prod_id)
+
+                                                        cursor7.execute(
+                                                            "INSERT INTO  oc21_product_description (product_id,name,description,tag) VALUES (%s,%s,%s,%s)",
+                                                            (int(prod_id), title, str(html), str(type)))
+                                                        connection1.commit()
+
+                                                        main_id = cursor7.lastrowid
+
+                                                        print (main_id)
 
 
                                                 else:
