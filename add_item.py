@@ -126,31 +126,31 @@ def get_list():
                                                                 (int(prod_id), title, str(html), str(type)))
                                                             connection1.commit()
 
-                                                            main_id = cursor8.lastrowid
+                                                            main_id = cursor8
 
                                                             print (main_id)
                                                             print (prod_id)
 
-                                                        with connection1.cursor() as cursor9:
-                                                            cursor9.execute(
-                                                                "INSERT INTO  oc21_product_to_store (product_id,store_id) VALUES (%s,%s)",
-                                                                (int(prod_id), 0))
-                                                            connection1.commit()
-
-                                                            main_id = cursor9.lastrowid
-
-                                                            print (main_id)
-                                                            print (prod_id)
-
-                                                        with connection1.cursor() as cursor10:
-                                                            cursor10.execute(
-                                                                "INSERT INTO  oc21_product_to_category (product_id,category_id) VALUES (%s,%s)",
-                                                                (int(prod_id), 153))
-                                                            connection1.commit()
-
-                                                            main_id = cursor10.lastrowid
-
-                                                            print (main_id)
+                                                        # with connection1.cursor() as cursor9:
+                                                        #     cursor9.execute(
+                                                        #         "INSERT INTO  oc21_product_to_store (product_id,store_id) VALUES (%s,%s)",
+                                                        #         (int(prod_id), 0))
+                                                        #     connection1.commit()
+                                                        #
+                                                        #     main_id = cursor9.lastrowid
+                                                        #
+                                                        #     print (main_id)
+                                                        #     print (prod_id)
+                                                        #
+                                                        # with connection1.cursor() as cursor10:
+                                                        #     cursor10.execute(
+                                                        #         "INSERT INTO  oc21_product_to_category (product_id,category_id) VALUES (%s,%s)",
+                                                        #         (int(prod_id), 153))
+                                                        #     connection1.commit()
+                                                        #
+                                                        #     main_id = cursor10.lastrowid
+                                                        #
+                                                        #     print (main_id)
 
 
                                                 else:
