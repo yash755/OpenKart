@@ -146,6 +146,8 @@ def get_list():
                                                             sql = "SELECT * FROM oc21_category_description WHERE name = %s"
                                                             adr = subcategory
 
+                                                            print (subcategory)
+
                                                             cursor11.execute(sql, adr)
                                                             connection1.commit()
 
