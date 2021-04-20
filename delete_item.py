@@ -27,6 +27,12 @@ def get_list():
 
                 print(cursor4.rowcount, "record(s) deleted")
 
+                sql = "DELETE FROM oc21_product_to_store"
+                cursor4.execute(sql)
+                connection1.commit()
+
+                print(cursor4.rowcount, "record(s) deleted")
+
 
 
 
