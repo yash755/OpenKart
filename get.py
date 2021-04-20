@@ -27,7 +27,59 @@ def get_list():
                     print (data)
 
 
+        except Exception as e:
+            print ('Failed Query')
+            print (e)
 
+        print ('\n\n\n\n')
+
+        try:
+            with connection1.cursor() as cursor2:
+                cursor2.execute("SELECT * FROM oc21_product_description")
+                connection1.commit()
+
+                print (cursor2.rowcount)
+
+                for row in cursor2:
+                    data = row
+                    print (data)
+
+
+        except Exception as e:
+            print ('Failed Query')
+            print (e)
+
+
+        print ('\n\n\n\n')
+
+        try:
+            with connection1.cursor() as cursor2:
+                cursor2.execute("SELECT * FROM oc21_product_to_store")
+                connection1.commit()
+
+                print (cursor2.rowcount)
+
+                for row in cursor2:
+                    data = row
+                    print (data)
+
+
+        except Exception as e:
+            print ('Failed Query')
+            print (e)
+
+        print ('\n\n\n\n')
+
+        try:
+            with connection1.cursor() as cursor2:
+                cursor2.execute("SELECT * FROM oc21_product_to_category")
+                connection1.commit()
+
+                print (cursor2.rowcount)
+
+                for row in cursor2:
+                    data = row
+                    print (data)
 
 
         except Exception as e:
