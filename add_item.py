@@ -151,8 +151,8 @@ def get_list():
                                                             cursor11.execute(sql, adr)
                                                             connection1.commit()
 
-                                                            if cursor3.rowcount >= 1:
-                                                                result = cursor3.fetchone()
+                                                            if cursor11.rowcount >= 1:
+                                                                result = cursor11.fetchone()
                                                                 parent_id = result['category_id']
 
                                                                 if parent_id:
@@ -160,7 +160,7 @@ def get_list():
                                                                     with connection1.cursor() as cursor10:
                                                                         cursor10.execute(
                                                                             "INSERT INTO  oc21_product_to_category (product_id,category_id) VALUES (%s,%s)",
-                                                                            (int(prod_id), 153))
+                                                                            (int(prod_id), parent_id))
                                                                         connection1.commit()
 
                                                                         main_id = cursor10.lastrowid
