@@ -22,7 +22,7 @@ def get_list():
                 for row in cursor:
                     try:
                         data = row
-                        adi_id = data['id']
+
                         subcategory = data['subcategory']
                         category = data['category']
 
@@ -38,7 +38,7 @@ def get_list():
                             for row in cursor1:
                                 try:
                                     data = row
-
+                                    adi_id = data['id']
                                     handle = data['handle']
                                     title = data['title']
                                     html = data['html']
