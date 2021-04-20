@@ -137,6 +137,19 @@ def get_list():
                                                         print (main_id)
 
 
+
+
+
+                                                        cursor7.execute(
+                                                            "INSERT INTO  oc21_product_to_category (product_id,category_id) VALUES (%s,%s)",
+                                                            (int(prod_id), 153))
+                                                        connection1.commit()
+
+                                                        main_id = cursor7.lastrowid
+
+                                                        print (main_id)
+
+
                                                 else:
                                                     print ("Update Logic")
                                         except Exception as e:
