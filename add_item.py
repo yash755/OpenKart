@@ -112,8 +112,8 @@ def get_list():
 
                                                     with connection1.cursor() as cursor7:
                                                         cursor7.execute(
-                                                            "INSERT INTO  oc21_product (quantity,stock_status_id,date_available,manufacturer_id,shipping,price,status,sort_order,date_added) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s)",
-                                                            (1,6,d4, int(vendor_id), 1,float(variant_price), 1,1,d4))
+                                                            "INSERT INTO  oc21_product (quantity,date_available,manufacturer_id,shipping,price,status,sort_order,date_added) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s)",
+                                                            (1,d4, int(vendor_id), 1,float(variant_price), 1,1,d4))
                                                         connection1.commit()
 
                                                         prod_id = cursor7.lastrowid
@@ -126,7 +126,7 @@ def get_list():
                                                                 (int(prod_id), title, str(html), str(type)))
                                                             connection1.commit()
 
-                                                            main_id = cursor8
+                                                            main_id = cursor8.lastrowid
 
                                                             print (main_id)
                                                             print (prod_id)
