@@ -182,6 +182,8 @@ def get_list():
                                                 else:
                                                     print ("Update Logic")
 
+                                                    print (adi_id)
+
                                                     with connection.cursor() as cursor41:
                                                         sql = "DELETE FROM adi WHERE id = %s"
                                                         adr = adi_id
