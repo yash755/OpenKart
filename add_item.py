@@ -126,19 +126,17 @@ def get_list():
                                                         main_id = cursor7.lastrowid
 
                                                         print (main_id)
+                                                        print (prod_id)
 
                                                         cursor7.execute(
                                                             "INSERT INTO  oc21_product_to_store (product_id,store_id) VALUES (%s,%s)",
-                                                            (int(prod_id), 1))
+                                                            (int(prod_id), 0))
                                                         connection1.commit()
 
                                                         main_id = cursor7.lastrowid
 
                                                         print (main_id)
-
-
-
-
+                                                        print (prod_id)
 
                                                         cursor7.execute(
                                                             "INSERT INTO  oc21_product_to_category (product_id,category_id) VALUES (%s,%s)",
