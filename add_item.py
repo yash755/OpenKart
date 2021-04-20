@@ -142,15 +142,28 @@ def get_list():
                                                             print (main_id)
                                                             print (prod_id)
 
-                                                        with connection1.cursor() as cursor10:
-                                                            cursor10.execute(
-                                                                "INSERT INTO  oc21_product_to_category (product_id,category_id) VALUES (%s,%s)",
-                                                                (int(prod_id), 153))
+                                                        with connection1.cursor() as cursor11:
+                                                            sql = "SELECT * FROM oc21_category_description WHERE name = %s"
+                                                            adr = subcategory
+
+                                                            cursor11.execute(sql, adr)
                                                             connection1.commit()
 
-                                                            main_id = cursor10.lastrowid
+                                                            if cursor3.rowcount >= 1:
+                                                                result = cursor3.fetchone()
+                                                                parent_id = result['category_id']
 
-                                                            print (main_id)
+                                                                if parent_id:
+
+                                                                    with connection1.cursor() as cursor10:
+                                                                        cursor10.execute(
+                                                                            "INSERT INTO  oc21_product_to_category (product_id,category_id) VALUES (%s,%s)",
+                                                                            (int(prod_id), 153))
+                                                                        connection1.commit()
+
+                                                                        main_id = cursor10.lastrowid
+
+                                                                        print (main_id)
 
 
                                                 else:
