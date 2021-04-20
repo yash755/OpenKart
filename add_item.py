@@ -122,8 +122,8 @@ def get_list():
 
                                                         with connection1.cursor() as cursor8:
                                                             cursor8.execute(
-                                                                "INSERT INTO  oc21_product_description (product_id,name,description,tag) VALUES (%s,%s,%s,%s)",
-                                                                (int(prod_id), title, str(html), str(type)))
+                                                                "INSERT INTO  oc21_product_description (product_id,name,description,tag,language_id) VALUES (%s,%s,%s,%s,%s)",
+                                                                (int(prod_id), title, 'Demo', str(type),1))
                                                             connection1.commit()
 
                                                             main_id = cursor8.lastrowid
