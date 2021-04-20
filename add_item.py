@@ -128,6 +128,7 @@ def get_list():
                                                         print (main_id)
                                                         print (prod_id)
 
+
                                                         cursor7.execute(
                                                             "INSERT INTO  oc21_product_to_store (product_id,store_id) VALUES (%s,%s)",
                                                             (int(prod_id), 0))
