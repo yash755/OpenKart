@@ -112,7 +112,7 @@ def get_list():
 
                                                     with connection1.cursor() as cursor7:
                                                         cursor7.execute(
-                                                            "INSERT INTO  oc21_product (quantity,date_available,manufacturer_id,shipping,price,status,sort_order,date_added) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s)",
+                                                            "INSERT INTO  oc21_product (quantity,date_available,manufacturer_id,shipping,price,status,sort_order,date_added) VALUES (%s,%s,%s,%s,%s,%s,%s,%s)",
                                                             (1,d4, int(vendor_id), 1,float(variant_price), 1,1,d4))
                                                         connection1.commit()
 
