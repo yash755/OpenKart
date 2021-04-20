@@ -1,6 +1,13 @@
 from datetime import date
+from datetime import timedelta
 
 today = date.today()
 # Month abbreviation, day and year
-d4 = today.strftime("%y-%m-%d")
-print("d4 =", d4)
+
+print (today)
+
+yesterday = today - timedelta(days = 1)
+
+print (yesterday)
+
+print (yesterday.strftime("%y-%m-%d"))

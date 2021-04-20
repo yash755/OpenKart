@@ -1,6 +1,7 @@
 import pymysql.cursors
 import time
 from datetime import date
+from datetime import timedelta
 
 
 def get_list():
@@ -106,14 +107,14 @@ def get_list():
                                                     print ("Vendor ID " + str(vendor_id))
 
                                                     today = date.today()
-                                                    d4 = today.strftime("%y-%m-%d")
+                                                    yesterday = today - timedelta(days = 1)
 
                                                     prod_id = -1
 
                                                     with connection1.cursor() as cursor7:
                                                         cursor7.execute(
                                                             "INSERT INTO  oc21_product (quantity,date_available,manufacturer_id,shipping,price,status,sort_order,date_added) VALUES (%s,%s,%s,%s,%s,%s,%s,%s)",
-                                                            (1,d4, int(vendor_id), 1,float(variant_price), 1,1,d4))
+                                                            (1,yesterday, int(vendor_id), 1,float(variant_price), 1,1,yesterday))
                                                         connection1.commit()
 
                                                         prod_id = cursor7.lastrowid
