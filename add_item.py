@@ -12,7 +12,7 @@ def get_list():
                                      cursorclass=pymysql.cursors.DictCursor)
         try:
             with connection.cursor() as cursor:
-                cursor.execute("SELECT * FROM adi_category GROUP BY subcategory LIMIT 2")
+                cursor.execute("SELECT * FROM adi_category GROUP BY subcategory LIMIT 1")
                 # cursor.execute("SELECT * FROM adi WHERE subcategory IS NOT NULL LIMIT 10")
                 connection.commit()
 
@@ -26,7 +26,7 @@ def get_list():
                         print (subcategory + '\n\n')
 
                         with connection.cursor() as cursor1:
-                            sql = "SELECT * FROM adi WHERE subcategory  = %s IS NOT NULL LIMIT 10"
+                            sql = "SELECT * FROM adi WHERE subcategory  = %s IS NOT NULL LIMIT 1"
                             adr = subcategory
 
                             cursor1.execute(sql, adr)
@@ -101,6 +101,14 @@ def get_list():
 
 
                                                     print ("Vendor ID " + str(vendor_id))
+
+                                                    with connection1.cursor() as cursor7:
+                                                        cursor7.execute(
+                                                            "INSERT INTO  oc21_product (name) VALUES (%s)",
+                                                            (vendor))
+                                                        connection1.commit()
+
+                                                        prod_id = cursor7.lastrowid
 
 
                                                 else:
