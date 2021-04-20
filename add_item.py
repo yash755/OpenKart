@@ -22,6 +22,7 @@ def get_list():
                 for row in cursor:
                     try:
                         data = row
+                        adi_id = data['id']
                         subcategory = data['subcategory']
                         category = data['category']
 
@@ -168,9 +169,29 @@ def get_list():
 
                                                                         print (main_id)
 
+                                                                        with connection.cursor() as cursor41:
+                                                                            sql = "DELETE FROM adi WHERE id = %s"
+                                                                            adr = adi_id
+
+                                                                            cursor41.execute(sql, adr)
+                                                                            connection.commit()
+
+                                                                            print(cursor41.rowcount, "record(s) deleted")
+
 
                                                 else:
                                                     print ("Update Logic")
+
+                                                    with connection.cursor() as cursor41:
+                                                        sql = "DELETE FROM adi WHERE id = %s"
+                                                        adr = adi_id
+
+                                                        cursor41.execute(sql, adr)
+                                                        connection.commit()
+
+                                                        print(cursor41.rowcount, "record(s) deleted")
+
+
                                         except Exception as e:
                                             print ('Failed Query')
                                             print (e)
