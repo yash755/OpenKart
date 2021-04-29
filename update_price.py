@@ -18,8 +18,13 @@ def get_list():
 
 
 
-                sql = "SELECT * FROM oc21_product WHERE date_modified < %s LIMIT 1"
-                adr = date.today()
+                # sql = "SELECT * FROM oc21_product WHERE date_modified < %s LIMIT 1"
+
+                sql = "SELECT * FROM oc21_product WHERE product_id = %s LIMIT 1"
+
+                # adr = date.today()
+
+                adr = 73
 
                 cursor.execute(sql,adr)
                 connection1.commit()
@@ -32,10 +37,17 @@ def get_list():
                         prod_id = data['product_id']
 
                         price = float(data['price'])
+
+
                         print (price)
 
 
-                        # price  = price + 0.15*price
+
+
+                        price  = price + 0.15*price
+
+                        price = float("{:.2f}".format(price))
+
                         print (price)
 
                         today = date.today()
@@ -44,7 +56,7 @@ def get_list():
 
 
                             sql = "UPDATE oc21_product SET price = %s, date_modified = %s WHERE product_id = %s"
-                            val = (price,today, prod_id)
+                            val = (66.11,today, prod_id)
 
                             cursor2.execute(sql, val)
 
