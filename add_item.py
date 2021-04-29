@@ -122,8 +122,8 @@ def get_list():
 
                                                     with connection1.cursor() as cursor7:
                                                         cursor7.execute(
-                                                            "INSERT INTO  oc21_product (quantity,date_available,manufacturer_id,shipping,price,status,sort_order,date_added) VALUES (%s,%s,%s,%s,%s,%s,%s,%s)",
-                                                            (1,yesterday, int(vendor_id), 1,price, 1,1,yesterday))
+                                                            "INSERT INTO  oc21_product (quantity,date_available,manufacturer_id,shipping,price,status,sort_order,date_added,date_modified) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s)",
+                                                            (1,yesterday, int(vendor_id), 1,price, 1,1,yesterday,today))
                                                         connection1.commit()
 
                                                         prod_id = cursor7.lastrowid
@@ -138,8 +138,6 @@ def get_list():
 
                                                             main_id = cursor8.lastrowid
 
-                                                            print (main_id)
-                                                            print (prod_id)
 
                                                         with connection1.cursor() as cursor9:
                                                             cursor9.execute(
@@ -149,14 +147,12 @@ def get_list():
 
                                                             main_id = cursor9.lastrowid
 
-                                                            print (main_id)
-                                                            print (prod_id)
 
                                                         with connection1.cursor() as cursor11:
                                                             sql = "SELECT * FROM oc21_category_description WHERE name = %s"
                                                             adr = subcategory
 
-                                                            print (subcategory)
+
 
                                                             cursor11.execute(sql, adr)
                                                             connection1.commit()
@@ -175,7 +171,6 @@ def get_list():
 
                                                                         main_id = cursor10.lastrowid
 
-                                                                        print (main_id)
 
                                                                         with connection.cursor() as cursor41:
                                                                             sql = "DELETE FROM adi WHERE id = %s"
