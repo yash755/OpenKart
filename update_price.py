@@ -36,3 +36,8 @@ def get_list():
         print ("Loop1")
         time.sleep(2)
         print("Was a nice sleep, now let me continue...")
+
+
+
+if __name__ == '__main__':
+    get_list()
