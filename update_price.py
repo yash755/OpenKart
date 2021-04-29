@@ -24,7 +24,7 @@ def get_list():
 
                 # adr = date.today()
 
-                adr = 73
+                adr = 74
 
                 cursor.execute(sql,adr)
                 connection1.commit()
@@ -56,7 +56,7 @@ def get_list():
 
 
                             sql = "UPDATE oc21_product SET price = %s, date_modified = %s WHERE product_id = %s"
-                            val = (66.11,today, prod_id)
+                            val = (price,today, prod_id)
 
                             cursor2.execute(sql, val)
 
