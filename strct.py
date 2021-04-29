@@ -52,3 +52,8 @@ def get_list():
             print ("Erpr")
     except:
         print ("Erpr")
+
+
+
+if __name__ == '__main__':
+    get_list()
