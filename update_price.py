@@ -42,9 +42,7 @@ def get_list():
 
                             cursor2.execute(sql, val)
 
-
-
-                            print( cursor2.rowcount + "record(s) affected")
+                            print(cursor2.rowcount)
 
 
                     except Exception as e:
