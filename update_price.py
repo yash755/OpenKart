@@ -44,7 +44,7 @@ def get_list():
 
                             cursor2.commit()
 
-                            print (cursor2.lastrowid)
+                            print(cursor2.rowcount, "record(s) affected")
 
 
                     except Exception as e:
