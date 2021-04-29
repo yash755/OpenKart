@@ -112,7 +112,9 @@ def get_list():
 
                                                     prod_id = -1
 
-                                                    print ("Price  " + variant_price)
+                                                    price = variant_price
+
+                                                    price = price.replace(",","")
 
                                                     price = float(variant_price)
 
