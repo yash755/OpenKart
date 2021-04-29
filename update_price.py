@@ -44,7 +44,7 @@ def get_list():
 
 
 
-                            print( "record(s) affected")
+                            print( cursor2.rowcount + "record(s) affected")
 
 
                     except Exception as e:
