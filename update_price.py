@@ -22,13 +22,26 @@ def get_list():
                 for row in cursor:
                     try:
                         data = row
+                        print (data)
                         prod_id = data['product_id']
 
                         price = float(data['price'])
                         print (price)
 
+
                         price  = price + 0.15*price
                         print (price)
+
+                        with connection1.cursor() as cursor2:
+
+                            sql = "UPDATE oc21_product SET price = %s WHERE product_id = %s"
+                            val = (price, prod_id)
+
+                            cursor2.execute(sql, val)
+
+                            cursor2.commit()
+
+                            print (cursor2.lastrowid)
 
 
                     except Exception as e:
