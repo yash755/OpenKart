@@ -29,13 +29,16 @@ def get_list():
                         print (price)
 
 
-                        price  = price + 0.15*price
+                        # price  = price + 0.15*price
                         print (price)
+
+                        today = date.today()
 
                         with connection1.cursor() as cursor2:
 
-                            sql = "UPDATE oc21_product SET price = %s WHERE product_id = %s"
-                            val = (price, prod_id)
+
+                            sql = "UPDATE oc21_product SET price = %s, date_modified = %s WHERE product_id = %s"
+                            val = (price,today, prod_id)
 
                             cursor2.execute(sql, val)
 
