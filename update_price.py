@@ -18,7 +18,7 @@ def get_list():
 
 
 
-                sql = "SELECT * FROM oc21_product WHERE date_modified < %s LIMIT 5000"
+                sql = "SELECT * FROM oc21_product WHERE date_modified < %s LIMIT 20000"
 
                 # sql = "SELECT * FROM oc21_product WHERE product_id = %s LIMIT 1"
 
