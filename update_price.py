@@ -42,13 +42,15 @@ def get_list():
 
                             cursor2.execute(sql, val)
 
-                            cursor2.commit()
+
 
                             print( "record(s) affected")
 
 
                     except Exception as e:
                         print ("Error")
+
+                connection1.commit()
 
         except Exception as e:
             print ("Error")
