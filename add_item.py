@@ -112,10 +112,18 @@ def get_list():
 
                                                     prod_id = -1
 
+                                                    price = float(variant_price)
+
+                                                    price = price + 0.15 * price
+
+                                                    price = float("{:.2f}".format(price))
+
+                                                    print (price)
+
                                                     with connection1.cursor() as cursor7:
                                                         cursor7.execute(
                                                             "INSERT INTO  oc21_product (quantity,date_available,manufacturer_id,shipping,price,status,sort_order,date_added) VALUES (%s,%s,%s,%s,%s,%s,%s,%s)",
-                                                            (1,yesterday, int(vendor_id), 1,float(variant_price), 1,1,yesterday))
+                                                            (1,yesterday, int(vendor_id), 1,price, 1,1,yesterday))
                                                         connection1.commit()
 
                                                         prod_id = cursor7.lastrowid
