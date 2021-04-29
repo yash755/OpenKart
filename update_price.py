@@ -22,7 +22,7 @@ def get_list():
                 for row in cursor:
                     try:
                         data = row
-                        print (data)
+                        print (data['price'])
 
                     except Exception as e:
                         print ("Error")
