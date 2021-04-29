@@ -113,82 +113,78 @@ def get_list():
                                                     prod_id = -1
 
                                                     price = variant_price
-
+                                                    print (price)
                                                     price = price.replace(",","")
-
                                                     price = float(price)
-
                                                     price = price + 0.15 * price
-
                                                     price = float("{:.2f}".format(price))
-
                                                     print (price)
 
-                                                    # with connection1.cursor() as cursor7:
-                                                    #     cursor7.execute(
-                                                    #         "INSERT INTO  oc21_product (quantity,date_available,manufacturer_id,shipping,price,status,sort_order,date_added) VALUES (%s,%s,%s,%s,%s,%s,%s,%s)",
-                                                    #         (1,yesterday, int(vendor_id), 1,price, 1,1,yesterday))
-                                                    #     connection1.commit()
-                                                    #
-                                                    #     prod_id = cursor7.lastrowid
-                                                    #
-                                                    #     print (prod_id)
-                                                    #
-                                                    #     with connection1.cursor() as cursor8:
-                                                    #         cursor8.execute(
-                                                    #             "INSERT INTO  oc21_product_description (product_id,name,description,tag,language_id) VALUES (%s,%s,%s,%s,%s)",
-                                                    #             (int(prod_id), title, str(html), str(type),1))
-                                                    #         connection1.commit()
-                                                    #
-                                                    #         main_id = cursor8.lastrowid
-                                                    #
-                                                    #         print (main_id)
-                                                    #         print (prod_id)
-                                                    #
-                                                    #     with connection1.cursor() as cursor9:
-                                                    #         cursor9.execute(
-                                                    #             "INSERT INTO  oc21_product_to_store (product_id,store_id) VALUES (%s,%s)",
-                                                    #             (int(prod_id), 0))
-                                                    #         connection1.commit()
-                                                    #
-                                                    #         main_id = cursor9.lastrowid
-                                                    #
-                                                    #         print (main_id)
-                                                    #         print (prod_id)
-                                                    #
-                                                    #     with connection1.cursor() as cursor11:
-                                                    #         sql = "SELECT * FROM oc21_category_description WHERE name = %s"
-                                                    #         adr = subcategory
-                                                    #
-                                                    #         print (subcategory)
-                                                    #
-                                                    #         cursor11.execute(sql, adr)
-                                                    #         connection1.commit()
-                                                    #
-                                                    #         if cursor11.rowcount >= 1:
-                                                    #             result = cursor11.fetchone()
-                                                    #             parent_id = result['category_id']
-                                                    #
-                                                    #             if parent_id:
-                                                    #
-                                                    #                 with connection1.cursor() as cursor10:
-                                                    #                     cursor10.execute(
-                                                    #                         "INSERT INTO  oc21_product_to_category (product_id,category_id) VALUES (%s,%s)",
-                                                    #                         (int(prod_id), parent_id))
-                                                    #                     connection1.commit()
-                                                    #
-                                                    #                     main_id = cursor10.lastrowid
-                                                    #
-                                                    #                     print (main_id)
-                                                    #
-                                                    #                     with connection.cursor() as cursor41:
-                                                    #                         sql = "DELETE FROM adi WHERE id = %s"
-                                                    #                         adr = adi_id
-                                                    #
-                                                    #                         cursor41.execute(sql, adr)
-                                                    #                         connection.commit()
-                                                    #
-                                                    #                         print(cursor41.rowcount, "record(s) deleted")
+                                                    with connection1.cursor() as cursor7:
+                                                        cursor7.execute(
+                                                            "INSERT INTO  oc21_product (quantity,date_available,manufacturer_id,shipping,price,status,sort_order,date_added) VALUES (%s,%s,%s,%s,%s,%s,%s,%s)",
+                                                            (1,yesterday, int(vendor_id), 1,price, 1,1,yesterday))
+                                                        connection1.commit()
+
+                                                        prod_id = cursor7.lastrowid
+
+                                                        print (prod_id)
+
+                                                        with connection1.cursor() as cursor8:
+                                                            cursor8.execute(
+                                                                "INSERT INTO  oc21_product_description (product_id,name,description,tag,language_id) VALUES (%s,%s,%s,%s,%s)",
+                                                                (int(prod_id), title, str(html), str(type),1))
+                                                            connection1.commit()
+
+                                                            main_id = cursor8.lastrowid
+
+                                                            print (main_id)
+                                                            print (prod_id)
+
+                                                        with connection1.cursor() as cursor9:
+                                                            cursor9.execute(
+                                                                "INSERT INTO  oc21_product_to_store (product_id,store_id) VALUES (%s,%s)",
+                                                                (int(prod_id), 0))
+                                                            connection1.commit()
+
+                                                            main_id = cursor9.lastrowid
+
+                                                            print (main_id)
+                                                            print (prod_id)
+
+                                                        with connection1.cursor() as cursor11:
+                                                            sql = "SELECT * FROM oc21_category_description WHERE name = %s"
+                                                            adr = subcategory
+
+                                                            print (subcategory)
+
+                                                            cursor11.execute(sql, adr)
+                                                            connection1.commit()
+
+                                                            if cursor11.rowcount >= 1:
+                                                                result = cursor11.fetchone()
+                                                                parent_id = result['category_id']
+
+                                                                if parent_id:
+
+                                                                    with connection1.cursor() as cursor10:
+                                                                        cursor10.execute(
+                                                                            "INSERT INTO  oc21_product_to_category (product_id,category_id) VALUES (%s,%s)",
+                                                                            (int(prod_id), parent_id))
+                                                                        connection1.commit()
+
+                                                                        main_id = cursor10.lastrowid
+
+                                                                        print (main_id)
+
+                                                                        with connection.cursor() as cursor41:
+                                                                            sql = "DELETE FROM adi WHERE id = %s"
+                                                                            adr = adi_id
+
+                                                                            cursor41.execute(sql, adr)
+                                                                            connection.commit()
+
+                                                                            print(cursor41.rowcount, "record(s) deleted")
 
 
                                                 else:
