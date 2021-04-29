@@ -112,6 +112,8 @@ def get_list():
 
                                                     prod_id = -1
 
+                                                    print ("Price  " + float(variant_price))
+
                                                     price = float(variant_price)
 
                                                     price = price + 0.15 * price
