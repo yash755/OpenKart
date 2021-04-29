@@ -24,7 +24,7 @@ def get_list():
 
                 # adr = date.today()
 
-                adr = 74
+                adr = 75
 
                 cursor.execute(sql,adr)
                 connection1.commit()
@@ -52,15 +52,15 @@ def get_list():
 
                         today = date.today()
 
-                        # with connection1.cursor() as cursor2:
-                        #
-                        #
-                        #     sql = "UPDATE oc21_product SET price = %s, date_modified = %s WHERE product_id = %s"
-                        #     val = (26.44,today, prod_id)
-                        #
-                        #     cursor2.execute(sql, val)
-                        #
-                        #     print(cursor2.rowcount)
+                        with connection1.cursor() as cursor2:
+
+
+                            sql = "UPDATE oc21_product SET price = %s, date_modified = %s WHERE product_id = %s"
+                            val = (price,today, prod_id)
+
+                            cursor2.execute(sql, val)
+
+                            print(cursor2.rowcount)
 
 
                     except Exception as e:
