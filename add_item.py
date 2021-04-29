@@ -105,14 +105,14 @@ def get_list():
                                                         vendor_id = man_result['manufacturer_id']
 
 
-                                                    print ("Vendor ID " + str(vendor_id))
+                                                    print ("Vendor ID :" + str(vendor_id))
 
                                                     today = date.today()
                                                     yesterday = today - timedelta(days = 1)
 
                                                     prod_id = -1
 
-                                                    print ("Price  " + float(variant_price))
+                                                    print ("Price  " + variant_price)
 
                                                     price = float(variant_price)
 
