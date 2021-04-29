@@ -24,7 +24,7 @@ def get_list():
                         data = row
                         prod_id = data['product_id']
 
-                        price = data['price']
+                        price = float(data['price'])
                         print (price)
 
                         price  = price + 0.15*price
