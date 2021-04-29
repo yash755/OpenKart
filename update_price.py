@@ -15,14 +15,21 @@ def get_list():
 
         try:
             with connection1.cursor() as cursor:
-                cursor.execute("SELECT * FROM oc21_product LIMIT 10")
+                cursor.execute("SELECT * FROM oc21_product LIMIT 1")
                 connection1.commit()
 
 
                 for row in cursor:
                     try:
                         data = row
-                        print (data['price'])
+                        prod_id = data['product_id']
+
+                        price = data['price']
+                        print (price)
+
+                        price  = price + 0.15*price
+                        print (price)
+
 
                     except Exception as e:
                         print ("Error")
