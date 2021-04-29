@@ -18,7 +18,7 @@ def get_list():
 
 
 
-                sql = "SELECT * FROM oc21_product WHERE date_modified <= %s LIMIT 1"
+                sql = "SELECT * FROM oc21_product WHERE date_modified < %s LIMIT 1"
                 adr = date.today()
 
                 cursor.execute(sql,adr)
