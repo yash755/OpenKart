@@ -56,7 +56,7 @@ def get_list():
 
 
                             sql = "UPDATE oc21_product SET price = %s, date_modified = %s WHERE product_id = %s"
-                            val = (price,today, prod_id)
+                            val = (26.44,today, prod_id)
 
                             cursor2.execute(sql, val)
 
