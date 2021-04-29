@@ -18,13 +18,14 @@ def get_list():
 
 
 
-                # sql = "SELECT * FROM oc21_product WHERE date_modified < %s LIMIT 1"
+                sql = "SELECT * FROM oc21_product WHERE date_modified < %s LIMIT 300"
 
-                sql = "SELECT * FROM oc21_product WHERE product_id = %s LIMIT 1"
+                # sql = "SELECT * FROM oc21_product WHERE product_id = %s LIMIT 1"
 
-                # adr = date.today()
+                adr = date.today() - timedelta(days = 1)
+                print (adr)
 
-                adr = 75
+                # adr = 75
 
                 cursor.execute(sql,adr)
                 connection1.commit()
