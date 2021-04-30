@@ -115,6 +115,7 @@ def get_list():
                                                     price = variant_price
                                                     print (price)
                                                     price = price.replace(",","")
+                                                    price = price.replace("Your Low Price          ",'')
                                                     price = float(price)
                                                     price = price + 0.15 * price
                                                     price = float("{:.2f}".format(price))
