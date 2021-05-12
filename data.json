@@ -1,0 +1,53 @@
+{
+  "id": "1234",
+  "relationships": {
+    "parents": {
+      "mother": {
+        "id": "1234",
+        "relationships": {
+          "parents": {
+            "mother": {
+              "id" : "433",
+              "relationship": {
+
+              }
+            },
+            "father": {
+
+            }
+          }
+
+        }
+      },
+      "father": {
+
+      }
+    },
+    "siblings": [
+      {
+        "id": "1234",
+        "relationship": {
+        }
+      },
+      {
+        "id": "1234"
+      },
+      {
+        "id": "1234"
+      }
+    ],
+    "partner": {
+      "id": "1"
+    },
+    "children": [
+      {
+        "id": "1234",
+        "relationship": {
+        }
+      },
+      {
+        "id": "1234"
+      }
+    ]
+  }
+}
